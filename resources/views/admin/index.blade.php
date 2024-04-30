@@ -1,4 +1,5 @@
 @extends('layouts.appadmin')
+<h1>Hello</h1>
 
 @section('content')
 
