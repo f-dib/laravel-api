@@ -47,6 +47,11 @@ class ProjectController extends Controller
 
         $newProject->fill($request->all());
 
+
+        // salviamo slug
+        $newProject->slug = Str::slug($request->title);
+
+
         $newProject->save();
 
         $newProject->technologies()->attach($request->technologies);
@@ -84,8 +89,12 @@ class ProjectController extends Controller
             $project->src = $path;
         };
 
+        $project->slug = Str::slug($request->title);
+        
+        
         $project->update($request->all());
 
+        
         $project->save();
 
         $project->technologies()->sync($request->technologies);

@@ -19,7 +19,7 @@
         </div>
 
         <div class="py-4 w-100 d-flex justify-content-center gap-5">
-            <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-warning">Modifica</a>
+            <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning">Modifica</a>
 
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Elimina
@@ -44,7 +44,7 @@
                     <div class="modal-footer">
 
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                        <form action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
+                        <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
                             @csrf
                             @method("DELETE")
                             
