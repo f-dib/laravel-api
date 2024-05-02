@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Mailer\Envelope;
+
 return [
 
     /*
@@ -19,7 +21,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [env('APP_FRONTEND_URL')],
 
     'allowed_origins_patterns' => [],
 
