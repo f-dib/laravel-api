@@ -12,7 +12,7 @@
                 <p class="card-text">{{ $project->type->title }}</p>
                 <div class="d-flex gap-2 mb-5 justify-content-center">
                     @foreach ($project->technologies as $technology)
-                        <span class="badge rounded-pill" style="background-color:{{$technology->color ?? 'rgba(255,255,255,.4)'}}">{{$technology->title}}</span>
+                        <span class="badge rounded-pill" style="background-color: {{$technology->color ?? 'rgba(255,255,255,.4)'}} ">{{$technology->title}}</span>
                     @endforeach
                 </div>
             </div>

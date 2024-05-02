@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Technology;
 use App\Models\Type;
+
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Storage;
+
+// importo la libreria Str per la gestione delle stringhe
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -47,10 +51,7 @@ class ProjectController extends Controller
 
         $newProject->fill($request->all());
 
-
-        // salviamo slug
-        $newProject->slug = Str::slug($request->title);
-
+        $newProject->slug = Str::slug($request->name);
 
         $newProject->save();
 
@@ -88,18 +89,16 @@ class ProjectController extends Controller
             $path = Storage::disk('public')->put('post_images', $request->src);
             $project->src = $path;
         };
-
-        $project->slug = Str::slug($request->title);
         
+        $project->slug = Str::slug($request->name);
         
         $project->update($request->all());
-
         
         $project->save();
 
         $project->technologies()->sync($request->technologies);
 
-        return redirect()->route('admin.projects.show', $project->id);
+        return redirect()->route('admin.projects.show', $project->slug);
     }
 
     /**

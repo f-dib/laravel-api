@@ -42,7 +42,7 @@ Route::middleware(['auth', 'verified'])
             Route::get('/', [DashboardController::class, 'index'])->name('index');
             Route::get('/users', [DashboardController::class, 'users'])->name('users');
            // rotte per Project
-            Route::resource('/projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
+            Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
             Route::resource('types', TypeController::class);
             Route::resource('technologies', TechnologyController::class);
         });

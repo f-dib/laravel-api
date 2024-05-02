@@ -18,12 +18,9 @@
                     <div class="card-body">
                         <h5 class="card-title text-uppercase">{{ $project->name }}</h5>
                         <p class="card-text">{{ $project->description }}</p>
-                        <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">Mostra di più</a>
+                        <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-primary">Mostra di più</a>
                     </div>
                 </div>
-
-                <td><a href="{{route('admin.projects.show', $project)}}" class="btn btn-info">Mostra</a></td>
-                <td><a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning">Modifica</a></td>
                     
             @endforeach
         </div>
